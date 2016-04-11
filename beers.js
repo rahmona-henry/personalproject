@@ -1,4 +1,5 @@
 module.exports =
+[
    { 'id': '1', 'name': 'Cara', 'date':'Summer 2016'},
    { 'id': '2', 'name': 'Vegas', 'date':'Autumn 2015'},
    { 'id': '3', 'name': 'Jim', 'date':'Winter 2015'},

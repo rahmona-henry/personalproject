@@ -25,7 +25,9 @@
     "express": "^4.13.4",
     "handlebars": "^4.0.5",
     "hbsfy": "^2.6.0",
+    "jquery": "^2.2.3",
     "nodemon": "^1.9.1",
+    "superagent": "^1.8.3",
     "uglifyify": "^3.0.1"
   }
 }
