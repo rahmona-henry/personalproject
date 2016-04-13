@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var beers = require('./beers.js')
+var beers = require('./beers.js');
 
 app.use(express.static('client'));
 
@@ -14,7 +14,6 @@ app.get('/api/v1/beers', function (req, res){
 
 app.get('/api/v1/beers/:id', function (req, res){
   res.json(beers[req.params.id-1])
-  //console.log('this is beers.id: ', beers.id)
 })
 
 app.listen(3000, function () {
