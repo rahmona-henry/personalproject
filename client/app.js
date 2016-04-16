@@ -19569,6 +19569,7 @@ function request(RequestConstructor, method, url) {
 module.exports = request;
 
 },{}],55:[function(require,module,exports){
+(function (__dirname){
 var allBeers = require('../views/allBeers.hbs');
 var beerProfile = require('../views/beerProfile.hbs');
 var addNewBeer = require('../views/addNewBeerProfile.hbs');
@@ -19588,9 +19589,10 @@ $(document).ready(function(){
 // close homePage function()
 
 
+
 function showAllBeers() {
   request
-  .get('http://localhost:3000/api/v1/beers')
+  .get('/api/v1/beers')
   .end(function(err, res){
     document.body.innerHTML = allBeers({ beers: res.body })
     $('.viewBtn').click(function(){
@@ -19601,7 +19603,7 @@ function showAllBeers() {
 
 function getAndShowProfile(id) {
   request
-  .get('http://localhost:3000/api/v1/beers/'+id)
+  .get('/api/v1/beers/'+id)
   .end(function(err, res){
     var htmlFromTemplate = beerProfile(res.body)
     document.body.innerHTML = htmlFromTemplate;
@@ -19613,18 +19615,30 @@ function getAndShowProfile(id) {
 
 function addBeer() {
   request
-  .post('http://localhost:3000/api/v1/beers/new')
+  .post('/api/v1/new')
   .end(function(err, res){
-    console.log('this is the server receiving the post')
+    var newBeer = req.body
+    newBeer.id = beer.length
+    beer.push(newBeer)
+
 })
 }
 
+function updateBeerFile(){
+  fs.writeFile(__dirname + './beers.json', JSON.stringify(beers), 'utf8', function(err, data){
+      if (err) throw err;
+      console.log('It\'s saved!');
+    });
+}
 
+
+
+}).call(this,"/src")
 },{"../views/addNewBeerProfile.hbs":56,"../views/allBeers.hbs":57,"../views/beerProfile.hbs":58,"handlebars":33,"jquery":47,"superagent":51}],56:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h1>Add New Beer</h1>\n\n  <form>\n    <input type=\"text\" name=\"beername\" placeholder=\"name of the beer\">\n    <input type=\"date\" name=\"productiondate\" placeholder=\"production date\">\n    <input type=\"number\" name=\"id\" placeholder=\"list number?\">\n    <textarea placeholder=\"recipe\" name=\"description\"></textarea>\n    <br>\n    <input type=\"submit\" name=\"commit\" value=\"add beer data\" />\n  </form>\n";
+    return "<h1>Add New Beer</h1>\n\n  <form>\n    <input type=\"text\" name=\"beername\" placeholder=\"name of the beer\">\n    <br>\n    <input type=\"date\" name=\"productiondate\" placeholder=\"production date\">\n    <br>\n    <!--<textarea placeholder=\"recipe\" name=\"description\"></textarea>-->\n    <br>\n    <input type=\"submit\" name=\"commit\" value=\"add beer data\" />\n  </form>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":46}],57:[function(require,module,exports){

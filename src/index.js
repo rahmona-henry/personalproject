@@ -17,9 +17,10 @@ $(document).ready(function(){
 // close homePage function()
 
 
+
 function showAllBeers() {
   request
-  .get('http://localhost:3000/api/v1/beers')
+  .get('/api/v1/beers')
   .end(function(err, res){
     document.body.innerHTML = allBeers({ beers: res.body })
     $('.viewBtn').click(function(){
@@ -30,7 +31,7 @@ function showAllBeers() {
 
 function getAndShowProfile(id) {
   request
-  .get('http://localhost:3000/api/v1/beers/'+id)
+  .get('/api/v1/beers/'+id)
   .end(function(err, res){
     var htmlFromTemplate = beerProfile(res.body)
     document.body.innerHTML = htmlFromTemplate;
@@ -42,9 +43,20 @@ function getAndShowProfile(id) {
 
 function addBeer() {
   request
-  .post('http://localhost:3000/api/v1/beers/new')
+  .post('/api/v1/new')
   .end(function(err, res){
-    console.log('this is the server receiving the post')
+    var newBeer = req.body
+    newBeer.id = beer.length
+    beer.push(newBeer)
+
 })
 }
+
+function updateBeerFile(){
+  fs.writeFile(__dirname + './beers.json', JSON.stringify(beers), 'utf8', function(err, data){
+      if (err) throw err;
+      console.log('It\'s saved!');
+    });
+}
+
 
