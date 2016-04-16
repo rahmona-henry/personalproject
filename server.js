@@ -16,6 +16,10 @@ app.get('/api/v1/beers/:id', function (req, res){
   res.json(beers[req.params.id-1])
 })
 
+app.get('/api/v1/beers/new', function (req, res){
+  res.render('addNewBeerProfile')
+})
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000')
 });

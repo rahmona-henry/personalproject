@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server.js",
-    "build": "browserify -t hbsfy ./src/index.js -g uglifyify > ./client/app.js",
+    "build": "browserify -t hbsfy ./src/index.js  > ./client/app.js",
     "serve": "node-dev server.js",
     "watch": "watchify -t hbsfy .src/index.js > .client/app.js -dev"
   },
