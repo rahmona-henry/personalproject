@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server.js",
-    "build": "browserify -t hbsfy ./src/index.js > ./client/app.js"
-
+    "build": "browserify -t hbsfy ./src/index.js -g uglifyify > ./client/app.js",
+    "serve": "node-dev server.js",
+    "watch": "watchify -t hbsfy .src/index.js > .client/app.js -dev"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,13 @@
     "hbsfy": "^2.6.0",
     "jQuery": "^1.7.4",
     "jquery": "^2.2.3",
+    "node-dev": "^3.1.0",
     "nodemon": "^1.9.1",
     "superagent": "^1.8.3",
-    "uglifyify": "^3.0.1"
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
   }
 }
-
-
