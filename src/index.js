@@ -44,7 +44,7 @@ function getAndShowProfile(id) {
 
 
 
-fs.readFile('beer.js', utf8, function (err,data){
+fs.readFile('beer.js', 'utf8', function (err,data){
 
   var dataObject = JSON.parse(data)
   var beer = createNewBeer(req.body[0].value, req.body[1].value, req.body[2].value, req.body[3].value)
