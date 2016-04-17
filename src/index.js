@@ -17,10 +17,9 @@ $(document).ready(function(){
 // close homePage function()
 
 
-
 function showAllBeers() {
   request
-  .get('/api/v1/beers')
+  .get('/beers')
   .end(function(err, res){
     document.body.innerHTML = allBeers({ beers: res.body })
     $('.viewBtn').click(function(){
@@ -31,7 +30,7 @@ function showAllBeers() {
 
 function getAndShowProfile(id) {
   request
-  .get('/api/v1/beers/'+id)
+  .get('/beers/'+id)
   .end(function(err, res){
     var htmlFromTemplate = beerProfile(res.body)
     document.body.innerHTML = htmlFromTemplate;
@@ -41,22 +40,34 @@ function getAndShowProfile(id) {
   }) // close end
 } //close function getAndShowProfile
 
-function addBeer() {
-  request
-  .post('/api/v1/new')
-  .end(function(err, res){
-    var newBeer = req.body
-    newBeer.id = beer.length
-    beer.push(newBeer)
+// function createNewBeer(givenName, givenDate, givenStyle, givenRecipe) {
+//   var newBeer = {}
+//   newBeer.name = givenName
+//   newBeer.date = givenDate
+//   newBeer.style = givenStyle
+//   newBeer.recipe = givenRecipe
+//   return newBeer
+// }
 
-})
-}
+// fs.readFile('beer.js', utf8, function (err,data){
 
-function updateBeerFile(){
-  fs.writeFile(__dirname + './beers.json', JSON.stringify(beers), 'utf8', function(err, data){
-      if (err) throw err;
-      console.log('It\'s saved!');
-    });
-}
+//   var dataObject = JSON.parse(data)
+//   var obj = createNewBeer(req.body[0].value, req.body[1].value, req.body[2].value, req.body[3].value)
+
+//   fs.writeFile('beer.js', JSON.stringify(dataToSave),function(err){
+//     if (err) {
+//       console.log('oh nooo error')
+//     } //close if
+//     else{
+//       console.log('ok')
+//     } //close else
+//   }) //close fswrite )}
+// }) //close fs.read )}
+
+
+
+
+
+
 
 

@@ -19569,7 +19569,6 @@ function request(RequestConstructor, method, url) {
 module.exports = request;
 
 },{}],55:[function(require,module,exports){
-(function (__dirname){
 var allBeers = require('../views/allBeers.hbs');
 var beerProfile = require('../views/beerProfile.hbs');
 var addNewBeer = require('../views/addNewBeerProfile.hbs');
@@ -19588,11 +19587,24 @@ $(document).ready(function(){
 }) // close document ready
 // close homePage function()
 
+fs.readFile('beer.js', utf8, function (err,data){
 
+  var dataObject = JSON.parse(data)
+  var obj = createNewBeer(req.body[0].value, req.body[1].value, req.body[2].value, req.body[3].value)
+
+  fs.writeFile('beer.js', JSON.stringify(dataToSave),function(err){
+    if (err) {
+      console.log('oh nooo error')
+    } //close if
+    else{
+      console.log('ok')
+    } //close else
+  }) //close fswrite )}
+}) //close fs.read )}
 
 function showAllBeers() {
   request
-  .get('/api/v1/beers')
+  .get('/beers')
   .end(function(err, res){
     document.body.innerHTML = allBeers({ beers: res.body })
     $('.viewBtn').click(function(){
@@ -19603,7 +19615,7 @@ function showAllBeers() {
 
 function getAndShowProfile(id) {
   request
-  .get('/api/v1/beers/'+id)
+  .get('/beers/'+id)
   .end(function(err, res){
     var htmlFromTemplate = beerProfile(res.body)
     document.body.innerHTML = htmlFromTemplate;
@@ -19613,32 +19625,28 @@ function getAndShowProfile(id) {
   }) // close end
 } //close function getAndShowProfile
 
-function addBeer() {
-  request
-  .post('/api/v1/new')
-  .end(function(err, res){
-    var newBeer = req.body
-    newBeer.id = beer.length
-    beer.push(newBeer)
-
-})
-}
-
-function updateBeerFile(){
-  fs.writeFile(__dirname + './beers.json', JSON.stringify(beers), 'utf8', function(err, data){
-      if (err) throw err;
-      console.log('It\'s saved!');
-    });
+function createNewBeer(givenName, givenDate, givenStyle, givenRecipe) {
+  var newBeer = {}
+  newBeer.name = givenName
+  newBeer.date = givenDate
+  newBeer.style = givenStyle
+  newBeer.recipe = givenRecipe
+  return newBeer
 }
 
 
 
-}).call(this,"/src")
+
+
+
+
+
+
 },{"../views/addNewBeerProfile.hbs":56,"../views/allBeers.hbs":57,"../views/beerProfile.hbs":58,"handlebars":33,"jquery":47,"superagent":51}],56:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h1>Add New Beer</h1>\n\n  <form>\n    <input type=\"text\" name=\"beername\" placeholder=\"name of the beer\">\n    <br>\n    <input type=\"date\" name=\"productiondate\" placeholder=\"production date\">\n    <br>\n    <!--<textarea placeholder=\"recipe\" name=\"description\"></textarea>-->\n    <br>\n    <input type=\"submit\" name=\"commit\" value=\"add beer data\" />\n  </form>\n";
+    return "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Rahmona's Brewery</title>\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n    <link rel='stylesheet' href='./style.css' />\n  </head>\n<body>\n<h1>Add a new beer to your brewery</h1>\n\n<div class=\"container1\">\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <label for=\"name\">Name</label>\n      <input type=\"name\" id=\"name\" placeholder=\"Enter name of beer\">\n      <label for=\"date\">Date</label>\n      <input type=\"date\" id=\"date\" placeholder=\"Enter brew production date\">\n      <label for=\"style\">Style</label>\n      <input type=\"style\" id=\"style\" placeholder=\"Enter style of beer\">\n    </div>\n\n    </form>\n</div>\n<div class=\"container2\">\n<label for=\"name\">Brew Recipe</label>\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <textarea class=\"form-control\" rows=\"5\" id=\"recipe\"></textarea>\n    </div>\n  </form>\n  <button type=\"submit\" class=\"btn btn-default\">Save Beer</button>\n</div>\n</body>\n</html>\n\n";
 },"useData":true});
 
 },{"hbsfy/runtime":46}],57:[function(require,module,exports){
@@ -19647,17 +19655,17 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=container.escapeExpression;
 
-  return "<li>"
+  return "<li><h1>"
     + alias1(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"name","hash":{},"data":data}) : helper)))
-    + "</li>\n<button class='viewBtn' data-id='"
+    + "</h1></li>\n<button type='button' class='viewBtn' data-id='"
     + alias1(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
     + "'>View</button>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<h1>Hello welcome to Rahmona's Brewery</h1>\n<h1>Brews to date</h1>\n<ul>\n"
+  return "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Rahmona's Brewery</title>\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n    <link rel='stylesheet' href='./style.css'/>\n  </head>\n  <body>\n<h1>Hello welcome to Rahmona's Brewery</h1>\n<h1>Brews to date</h1>\n<ul>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.beers : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "</ul>\n\n\n\n";
+    + "</ul>\n</body>\n</html>\n\n\n";
 },"useData":true});
 
 },{"hbsfy/runtime":46}],58:[function(require,module,exports){
@@ -19666,13 +19674,15 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<h1>"
+  return "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Rahmona's Brewery</title>\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n    <link rel='stylesheet' href='./style.css' />\n  </head>\n<body>\n<h1>"
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
-    + "'s details</h1>\n<ul>\n<li>"
-    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "</li>\n<li>"
+    + "'s details</h1>\n\n<h3>Production Date: "
     + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
-    + "</li>\n</ul>\n<button id=\"backBtn\">Go Back</button>\n";
+    + "</h3>\n<h3>Style of Beer: "
+    + alias4(((helper = (helper = helpers.style || (depth0 != null ? depth0.style : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"style","hash":{},"data":data}) : helper)))
+    + "</h3>\n<h3>Recipe: "
+    + alias4(((helper = (helper = helpers.recipe || (depth0 != null ? depth0.recipe : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"recipe","hash":{},"data":data}) : helper)))
+    + "</h3>\n\n<button id=\"backBtn\">Go Back</button>\n</body>\n</html>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":46}]},{},[55]);

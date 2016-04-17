@@ -1,11 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rahmona's Brewery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel='stylesheet' href='./style.css'/>
+  </head>
+  <body>
 <h1>Hello welcome to Rahmona's Brewery</h1>
 <h1>Brews to date</h1>
 <ul>
 {{#each beers}}
-<li>{{name}}</li>
-<button class='viewBtn' data-id='{{this.id}}'>View</button>
+<li><h1>{{name}}</h1></li>
+<button type='button' class='viewBtn' data-id='{{this.id}}'>View</button>
 {{/each}}
 </ul>
-
+</body>
+</html>
 
 

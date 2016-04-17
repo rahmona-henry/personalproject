@@ -10,13 +10,14 @@ app.get('/', function(req, res) {
   res.send('index.html');
 });
 
-app.get('/api/v1/beers', function (req, res){
+app.get('/beers', function (req, res){
   res.json(beers)
 });
 
-app.get('/api/v1/beers/:id', function (req, res){
+app.get('/beers/:id', function (req, res){
   res.json(beers[req.params.id-1])
 })
+
 
 app.get('/new', function (req, res){
   res.render('addNewBeerProfile')
