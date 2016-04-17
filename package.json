@@ -28,6 +28,7 @@
     "hbsfy": "^2.6.0",
     "jQuery": "^1.7.4",
     "jquery": "^2.2.3",
+    "knex": "^0.10.0",
     "node-dev": "^3.1.0",
     "nodemon": "^1.9.1",
     "superagent": "^1.8.3",
