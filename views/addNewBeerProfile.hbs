@@ -1,35 +1,26 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Rahmona's Brewery</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel='stylesheet' href='./style.css' />
-  </head>
+<html lang="en">
+<head>
+  <title>Sign up form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
 <body>
-<h1>Add a new beer to your brewery</h1>
 
-<div class="container1">
-  <form role="form">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="name" id="name" placeholder="Enter name of beer">
-      <label for="date">Date</label>
-      <input type="date" id="date" placeholder="Enter brew production date">
-      <label for="style">Style</label>
-      <input type="style" id="style" placeholder="Enter style of beer">
-    </div>
-
-    </form>
-</div>
-<div class="container2">
-<label for="name">Brew Recipe</label>
-  <form role="form">
-    <div class="form-group">
-      <textarea class="form-control" rows="5" id="recipe"></textarea>
-    </div>
+<div class="container">
+  <h2>Add a new beer</h2>
+  <form action="/foo" method="POST">
+    Beer Name:<br>
+    <input type="text" name="name"><br>
+    Style:<br>
+    <input type="text" name="style"><br><br>
+    Inventory:<br>
+    <input type="number" name="inventory"><br><br>
+    <input type="submit" value="Submit">
   </form>
-  <button type="submit" class="btn btn-default">Save Beer</button>
 </div>
+
 </body>
-</html>
+
 
