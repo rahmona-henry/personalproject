@@ -1,6 +1,7 @@
 var allBeers = require('../views/allBeers.hbs');
 var beerProfile = require('../views/beerProfile.hbs');
-var addNewBeer = require('../views/addNewBeerProfile.hbs');
+var addNewBeer = require('../views/addNewBeerProfile.hbs')
+var searchBeer = require('../views/search.hbs')
 var handlebars = require('handlebars');
 var request = require('superagent');
 var $ = require('jquery');
@@ -9,9 +10,11 @@ var $ = require('jquery');
 $(document).ready(function(){
   $('#showBtn').click(function () {
   showAllBeers()
-  }) //close listener
-  $('#addBtn').click(function () {
-  addBeer()
+  // }) //close listener
+  // $('#addBtn').click(function () {
+  // addBeer()
+  // $('#searchBtn').click(function () {
+  // searchBeer()
   }) // close listener
 }) // close document ready
 // close homePage function()
