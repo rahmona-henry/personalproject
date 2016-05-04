@@ -311,7 +311,9 @@ module.exports = amdefine;
  * Expose `Emitter`.
  */
 
-module.exports = Emitter;
+if (typeof module !== 'undefined') {
+  module.exports = Emitter;
+}
 
 /**
  * Initialize a new `Emitter`.
@@ -19571,7 +19573,8 @@ module.exports = request;
 },{}],55:[function(require,module,exports){
 var allBeers = require('../views/allBeers.hbs');
 var beerProfile = require('../views/beerProfile.hbs');
-var addNewBeer = require('../views/addNewBeerProfile.hbs');
+var addNewBeer = require('../views/addNewBeerProfile.hbs')
+var searchBeer = require('../views/search.hbs')
 var handlebars = require('handlebars');
 var request = require('superagent');
 var $ = require('jquery');
@@ -19580,31 +19583,13 @@ var $ = require('jquery');
 $(document).ready(function(){
   $('#showBtn').click(function () {
   showAllBeers()
-  }) //close listener
-  $('#addBtn').click(function () {
-  addBeer()
   }) // close listener
 }) // close document ready
-// close homePage function()
 
-fs.readFile('beer.js', utf8, function (err,data){
 
-  var dataObject = JSON.parse(data)
-  var obj = createNewBeer(req.body[0].value, req.body[1].value, req.body[2].value, req.body[3].value)
-
-  fs.writeFile('beer.js', JSON.stringify(dataToSave),function(err){
-    if (err) {
-      console.log('oh nooo error')
-    } //close if
-    else{
-      console.log('ok')
-    } //close else
-  }) //close fswrite )}
-}) //close fs.read )}
 
 function showAllBeers() {
-  request
-  .get('/beers')
+  request.get('/beers')
   .end(function(err, res){
     document.body.innerHTML = allBeers({ beers: res.body })
     $('.viewBtn').click(function(){
@@ -19614,8 +19599,7 @@ function showAllBeers() {
 } //close function showAllBeers
 
 function getAndShowProfile(id) {
-  request
-  .get('/beers/'+id)
+  request.get('/beers/'+id)
   .end(function(err, res){
     var htmlFromTemplate = beerProfile(res.body)
     document.body.innerHTML = htmlFromTemplate;
@@ -19625,28 +19609,11 @@ function getAndShowProfile(id) {
   }) // close end
 } //close function getAndShowProfile
 
-function createNewBeer(givenName, givenDate, givenStyle, givenRecipe) {
-  var newBeer = {}
-  newBeer.name = givenName
-  newBeer.date = givenDate
-  newBeer.style = givenStyle
-  newBeer.recipe = givenRecipe
-  return newBeer
-}
-
-
-
-
-
-
-
-
-
-},{"../views/addNewBeerProfile.hbs":56,"../views/allBeers.hbs":57,"../views/beerProfile.hbs":58,"handlebars":33,"jquery":47,"superagent":51}],56:[function(require,module,exports){
+},{"../views/addNewBeerProfile.hbs":56,"../views/allBeers.hbs":57,"../views/beerProfile.hbs":58,"../views/search.hbs":59,"handlebars":33,"jquery":47,"superagent":51}],56:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Rahmona's Brewery</title>\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n    <link rel='stylesheet' href='./style.css' />\n  </head>\n<body>\n<h1>Add a new beer to your brewery</h1>\n\n<div class=\"container1\">\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <label for=\"name\">Name</label>\n      <input type=\"name\" id=\"name\" placeholder=\"Enter name of beer\">\n      <label for=\"date\">Date</label>\n      <input type=\"date\" id=\"date\" placeholder=\"Enter brew production date\">\n      <label for=\"style\">Style</label>\n      <input type=\"style\" id=\"style\" placeholder=\"Enter style of beer\">\n    </div>\n\n    </form>\n</div>\n<div class=\"container2\">\n<label for=\"name\">Brew Recipe</label>\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <textarea class=\"form-control\" rows=\"5\" id=\"recipe\"></textarea>\n    </div>\n  </form>\n  <button type=\"submit\" class=\"btn btn-default\">Save Beer</button>\n</div>\n</body>\n</html>\n\n";
+    return "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Sign up form</title>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n</head>\n<body>\n\n<div class=\"container\">\n  <h2>Add a new beer</h2>\n  <form action=\"/foo\" method=\"POST\">\n    Beer Name:<br>\n    <input type=\"text\" id=\"name\" name=\"name\"><br>\n    Style:<br>\n    <input type=\"text\" id=\"style\" name=\"style\"><br><br>\n    Inventory:<br>\n    <input type=\"number\" id=\"inventory\" name=\"inventory\"><br><br>\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n\n</body>\n\n\n";
 },"useData":true});
 
 },{"hbsfy/runtime":46}],57:[function(require,module,exports){
@@ -19674,7 +19641,7 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Rahmona's Brewery</title>\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n    <link rel='stylesheet' href='./style.css' />\n  </head>\n<body>\n<h1>"
+  return "<html>\n  <head>\n    <title>The Brewery</title>\n  </head>\n<body>\n<h1>"
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
     + "'s details</h1>\n\n<h3>Production Date: "
     + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
@@ -19683,6 +19650,13 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + "</h3>\n<h3>Recipe: "
     + alias4(((helper = (helper = helpers.recipe || (depth0 != null ? depth0.recipe : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"recipe","hash":{},"data":data}) : helper)))
     + "</h3>\n\n<button id=\"backBtn\">Go Back</button>\n</body>\n</html>\n";
+},"useData":true});
+
+},{"hbsfy/runtime":46}],59:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Search form</title>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n</head>\n<body>\n\n<div class=\"container\">\n  <h2>Search for a beer</h2>\n  <form action=\"/boo\" method=\"POST\">\n    What Beer Name to search:<br>\n    <input type=\"text\" id=\"name\" name=\"name\"><br>\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n\n</body>\n\n";
 },"useData":true});
 
 },{"hbsfy/runtime":46}]},{},[55]);
