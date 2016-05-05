@@ -8,7 +8,7 @@
     "start": "nodemon ./server.js",
     "build": "browserify -t hbsfy ./src/index.js  > ./client/app.js",
     "serve": "node-dev server.js",
-    "watch": "watchify -t hbsfy .src/index.js > .client/app.js -dev"
+    "watch": "watchify -t hbsfy .src/index.js -o .client/app.js -dev"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,6 @@
     "express": "^4.13.4",
     "handlebars": "^4.0.5",
     "hbsfy": "^2.6.0",
-    "jQuery": "^1.7.4",
     "jquery": "^2.2.3",
     "knex": "^0.10.0",
     "node-dev": "^3.1.0",
@@ -42,10 +41,8 @@
     "handlebars": "^4.0.5",
     "hbs": "^4.0.0",
     "hbsfy": "^2.6.0",
-    "jQuery": "^1.7.4",
     "jquery": "^2.2.3",
     "knex": "^0.10.0",
-    "location": "0.0.1",
     "node-dev": "^3.1.0",
     "nodemon": "^1.9.1",
     "pg": "^4.5.3",
