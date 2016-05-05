@@ -1,16 +1,15 @@
-
 <html>
-  <head>
-    <title>Brewery</title>
-  </head>
-  <body>
-<h1>The Brewery</h1>
-<h1>Brews to date</h1>
-<ul>
-{{#each beers}}
-<li><h3>{{name}}</h3></li>
-<button type='button' class='viewBtn' data-id='{{this.id}}'>View</button>
-{{/each}}
-</ul>
+<head>
+  <title>Brewery</title>
+</head>
+<body>
+  <h1>liquid intelligence</h1>
+  <h3>Brews to date</h3>
+  <ul>
+    {{#each beer}}
+    <li><h3>{{name}}</h3></li>
+    <button type='button' class='viewBtn' data-id='{{this.id}}'>View</button>
+    {{/each}}
+  </ul>
 </body>
 </html>

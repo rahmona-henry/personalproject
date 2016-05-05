@@ -1,7 +1,7 @@
 var allBeers = require('../views/allBeers.hbs');
 var beerProfile = require('../views/beerProfile.hbs');
 var addNewBeer = require('../views/addNewBeerProfile.hbs')
-var searchBeer = require('../views/search.hbs')
+var beerList = require('../views/beerList.js')
 var handlebars = require('handlebars');
 var request = require('superagent');
 var $ = require('jquery');
@@ -10,20 +10,19 @@ var $ = require('jquery');
 $(document).ready(function(){
   $('#showBtn').click(function () {
   showAllBeers()
-  }) // close listener
-}) // close document ready
-
-
+  })
+})
 
 function showAllBeers() {
-  request.get('/beers')
+  request.get('/allBeers')
   .end(function(err, res){
-    document.body.innerHTML = allBeers({ beers: res.body })
-    $('.viewBtn').click(function(){
-      getAndShowProfile($(this).data("id"))
-    }) // close click listener
-  }) // close end
-} //close function showAllBeers
+    beerList(res.body,'#content')
+      console.log(res)
+      $('.viewBtn').click(function(){
+      getAndShowProfile()
+    })
+  })
+}
 
 function getAndShowProfile(id) {
   request.get('/beers/'+id)
@@ -32,6 +31,6 @@ function getAndShowProfile(id) {
     document.body.innerHTML = htmlFromTemplate;
     $('#backBtn').click(function(){
       showAllBeers()
-    }) // close click listener
-  }) // close end
-} //close function getAndShowProfile
+    })
+  })
+}
