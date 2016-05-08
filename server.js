@@ -39,7 +39,7 @@ app.get('/new', function (req, res){
 ////////POST ROUTES/////////////
 
 app.post('/add', function (req, res){
-  knex('beer').insert({name:req.body.name},{style:req.body.style},{inventory:req.body.inventory})
+  knex('beer').insert({name:req.body.name}, {style:req.body.style}, {inventory:req.body.inventory})
   .then(function(data){
     res.send('success')
   })
