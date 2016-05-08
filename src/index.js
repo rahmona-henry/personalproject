@@ -16,8 +16,11 @@ $(document).ready(function(){
 function showAllBeers() {
   request.get('/allBeers')
   .end(function(err, res){
-    beerList(res.body,'#content')
-      console.log(res)
+    console.log('this is res.body',res.body[0].name)
+    var list = allBeers({beer:res.body})
+    document.body.innerHTML = list
+    // var list = beerList(res.body,'#content')
+    // $('#content').html(list)
       $('.viewBtn').click(function(){
       getAndShowProfile()
     })
