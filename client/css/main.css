@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100,300);
+@import url(https://fonts.googleapis.com/css?family=Chewy);
+
+body {
+    background: teal;
+}
+
+.container {
+  text-align: center;
+  position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	width: 100%;
+    background-color: grey;
+    border-radius: 8px;
+}
+#showBtn {
+  background: white;
+  width: 250px;
+}
+
+
+
+h1{
+  font-family: 'Chewy', cursive;
+}
