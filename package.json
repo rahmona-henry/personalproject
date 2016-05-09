@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server.js",
-    "build": "browserify -t hbsfy ./src/index.js  > ./client/app.js",
+    "build": "browserify -t hbsfy ./src/index.js -g uglifyify > ./client/app.js",
     "serve": "node-dev server.js",
-    "watch": "watchify -t hbsfy .src/index.js -o .client/app.js -dev"
+    "watch": "watchify -t hbsfy ./src/index.js -o ./client/app.js -dev"
   },
   "repository": {
     "type": "git",
