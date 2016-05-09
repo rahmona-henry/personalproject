@@ -15,7 +15,7 @@ module.exports = {
     }
   },
 
-  production: {
+  production: process.env.DATABASE_URL || {
     client: 'postgresql',
     connection: process.env.DATABASE_URL,
     pool: {
