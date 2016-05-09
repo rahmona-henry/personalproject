@@ -16,13 +16,16 @@ $(document).ready(function(){
 function showAllBeers() {
   request.get('/allBeers')
   .end(function(err, res){
-    console.log('this is res.body',res.body[0].name)
+    // console.log('this is res.body',res.body[0].name)
     var list = allBeers({beer:res.body})
     document.body.innerHTML = list
     // var list = beerList(res.body,'#content')
     // $('#content').html(list)
-      $('.viewBtn').click(function(){
-      getAndShowProfile()
+
+    $('.viewBtn').click(function(e){
+      e.preventDefault()
+      var id = e.target.id
+      getAndShowProfile(id)
     })
   })
 }
@@ -30,6 +33,7 @@ function showAllBeers() {
 function getAndShowProfile(id) {
   request.get('/beers/'+id)
   .end(function(err, res){
+    console.log(res.body)
     var htmlFromTemplate = beerProfile(res.body)
     document.body.innerHTML = htmlFromTemplate;
     $('#backBtn').click(function(){
