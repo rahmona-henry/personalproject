@@ -26,6 +26,7 @@ function showAllBeers() {
       e.preventDefault()
       var id = e.target.id
       getAndShowProfile(id)
+      
     })
   })
 }

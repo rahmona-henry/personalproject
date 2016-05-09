@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     knex('beer').del(),
 
     // Inserts seed entries
-    knex('beer').insert({name:'Grogans', style: 'stout', inventory:23}),
-    knex('beer').insert({name: 'Seans', style: 'stout', inventory:46}),
-    knex('beer').insert({name: 'Gerties', style: 'stout', inventory:72})
+    knex('beer').insert({name:'Cara', style: 'American Pale Ale', inventory:48}),
+    knex('beer').insert({name: 'Zeus', style: 'Pilsner', inventory:46}),
+    knex('beer').insert({name: 'Sheebie', style: 'Pale Ale', inventory:72})
   );
 };
