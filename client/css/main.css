@@ -6,15 +6,6 @@ body {
   font-family: 'Roboto Slab', serif;
 
 }
-.Beercontainer {
-  text-align: center;
-  position: absolute;
-  	top: 50%;
-  	transform: translateY(-50%);
-  	width: 100%;
-    background-color: ;
-    border-radius: 8px;
-}
 
 .container {
   text-align: center;
@@ -26,7 +17,15 @@ body {
     border-radius: 8px;
 }
 
-
+.Beercontainer {
+  text-align: center;
+  position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	width: 100%;
+    background-color: ;
+    border-radius: 8px;
+}
 
 .Indcontainer {
   text-align: center;
@@ -50,6 +49,12 @@ body {
 
 
 #subBtn {
+  background: white;
+  width: 250px;
+}
+
+
+#backBtn {
   background: white;
   width: 250px;
 }
