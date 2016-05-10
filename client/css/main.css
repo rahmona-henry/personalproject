@@ -1,10 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100,300);
-/*@import url(https://fonts.googleapis.com/css?family=Chewy);*/
+
 
 body {
   background-color: #ce5044;
   font-family: 'Roboto Slab', serif;
 
+}
+.Beercontainer {
+  text-align: center;
+  position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	width: 100%;
+    background-color: ;
+    border-radius: 8px;
 }
 
 .container {
@@ -17,15 +26,7 @@ body {
     border-radius: 8px;
 }
 
-.Beercontainer {
-  text-align: center;
-  position: absolute;
-  	top: 50%;
-  	transform: translateY(-50%);
-  	width: 100%;
-    background-color: ;
-    border-radius: 8px;
-}
+
 
 .Indcontainer {
   text-align: center;
@@ -52,13 +53,6 @@ body {
   background: white;
   width: 250px;
 }
-
-
-#addBtn {
-  background: white;
-  width: 250px;
-}
-
 
 h1{
   font-family: 'Roboto Slab', serif;
