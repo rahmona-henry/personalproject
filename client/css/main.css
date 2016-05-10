@@ -2,7 +2,8 @@
 @import url(https://fonts.googleapis.com/css?family=Chewy);
 
 body {
-    background: teal;
+    /*background: teal;*/
+     background-color: #ce5044;
 }
 
 .container {
@@ -19,8 +20,13 @@ body {
   width: 250px;
 }
 
+#addBtn {
+  background: white;
+  width: 250px;
+}
 
 
 h1{
-  font-family: 'Chewy', cursive;
+  font-family: 'Roboto Slab', serif;
+  color: #fff;
 }
