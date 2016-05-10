@@ -4,6 +4,7 @@
 body {
   background-color: #ce5044;
   font-family: 'Roboto Slab', serif;
+
 }
 
 .container {
@@ -46,11 +47,21 @@ body {
   width: 250px;
 }
 
+
 #subBtn {
   background: white;
   width: 250px;
 }
 
+
+#addBtn {
+  background: white;
+  width: 250px;
+}
+
+
 h1{
-font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab', serif;
+  color: #fff;
+
 }
