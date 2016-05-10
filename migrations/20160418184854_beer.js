@@ -4,7 +4,11 @@ exports.up = function(knex, Promise) {
    table.string('name')
    table.string('style')
    table.integer('inventory')
-   table.integer('userId')
+   table.string('brewDate')
+   table.string('bottlingDate')
+   table.string('ingredients')
+   table.string('process')
+   table.string('tasting')
   })
 };
 

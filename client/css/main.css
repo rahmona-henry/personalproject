@@ -1,8 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100,300);
-@import url(https://fonts.googleapis.com/css?family=Chewy);
+/*@import url(https://fonts.googleapis.com/css?family=Chewy);*/
 
 body {
-    background: teal;
+  background-color: #ce5044;
+  font-family: 'Roboto Slab', serif;
 }
 
 .container {
@@ -14,13 +15,42 @@ body {
     background-color: grey;
     border-radius: 8px;
 }
+
+.Beercontainer {
+  text-align: center;
+  position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	width: 100%;
+    background-color: ;
+    border-radius: 8px;
+}
+
+.Indcontainer {
+  text-align: center;
+  position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	width: 100%;
+    background-color: ;
+    border-radius: 8px;
+}
+
 #showBtn {
+  background: white;
+  width: 250px;
+  list-style: none;
+}
+#addBtn {
   background: white;
   width: 250px;
 }
 
-
+#subBtn {
+  background: white;
+  width: 250px;
+}
 
 h1{
-  font-family: 'Chewy', cursive;
+font-family: 'Roboto Slab', serif;
 }

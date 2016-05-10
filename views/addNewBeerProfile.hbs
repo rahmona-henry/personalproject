@@ -1,56 +1,48 @@
 <head>
   <title>Add a beer</title>
   <link rel="stylesheet" href="css/normalize.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="css/skeleton.css" media="screen" title="no title" charset="utf-8">
-      <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/skeleton.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <h1>liquid intelligence v1</h1>
-  <div class="Beercontainer">
+  <div class="six columns offset-by-three Beercontainer">
+    <h1 id="landingHeader">liquid intelligence</h1>
     <h2>Add A New Beer</h2>
     <form action="/add" method="POST">
+
       Beer Name:<br>
-      <input type="text" id="name" name="name"><br><br>
+      <input type="text" id="name" name="name"><br>
       Style:<br>
-      <input type="text" id="style" name="style"><br><br>
+      <input type="text" id="style" name="style"><br>
       Inventory:<br>
+      <input type="number" id="inventory" name="inventory"><br>
 
-      <input type="number" id="inventory" name="inventory"><br><br>
       Brew Date:<br>
-      <input type="date" id="date" name="date"><br><br>
+      <input type="date" id="date" name="brewDate"><br>
       Bottling Date:<br>
-      <input type="date" id="date" name="date"><br><br>
-      Ready To Drink Date:<br>
-      <input type="date" id="date" name="date"><br><br>
+      <input type="date" id="date" name="bottlingDate"><br><br>
 
-      <!-- Malts:<br>
-      <input type="text" id="style" name="style"><br><br>
-      Hops:<br>
-      <input type="text" id="style" name="style"><br><br>
-      Yeast:<br>
-      <input type="text" id="style" name="style"><br><br>
-      Priming Sugar:<br>
-      <input type="text" id="style" name="style"><br><br> -->
-      <textarea rows="4" cols="50" name="comment" form="usrform">Recipe</textarea><br><br>
-      <textarea rows="4" cols="50" name="comment" form="usrform">Process</textarea><br><br>
+      <textarea class="u-full-width" name="ingredients" >Ingredients</textarea><br>
+      <textarea class="u-full-width" name="process" >Process</textarea><br><br>
 
-      Original Gravity:<br>
-      <input type="text" id="style" name="style"><br><br>
-      Intermittent Gravity Readings:<br>
-      <input type="text" id="style" name="style"><br><br>
+      <!-- Original Gravity:<br>
+      <input type="text" id="style" name="style"><br>
+      Intermittent Gravity<br>
+      <input type="text" id="style" name="style"><br>
       Final Gravity:<br>
       <input type="text" id="style" name="style"><br><br>
 
-       Mash Temperature:<br>
-      <input type="text" id="style" name="style"><br><br>
-       Fermentation  Temperature:<br>
-      <input type="text" id="style" name="style"><br><br>
-       Bottling Temperature:<br>
-      <input type="text" id="style" name="style"><br><br>
-       Storage Temperature:<br>
-      <input type="text" id="style" name="style"><br><br>
-      <input type="submit" value="Submit">
+      Mash Temperature:<br>
+      <input type="text" id="style" name="style"><br>
+      Fermentation  Temperature:<br>
+      <input type="text" id="style" name="style"><br>
+      Storage Temperature:<br>
+      <input type="text" id="style" name="style"><br>   -->
+
+      <textarea class="u-full-width" name="tasting">Tasting Notes</textarea><br><br>
+      <input id="subBtn" type="submit" value="Submit">
 
     </form>
+
   </div>
 </body>

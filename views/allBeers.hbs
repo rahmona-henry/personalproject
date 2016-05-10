@@ -2,18 +2,19 @@
 <head>
   <title>Brewery</title>
   <link rel="stylesheet" href="css/normalize.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="css/skeleton.css" media="screen" title="no title" charset="utf-8">
-      <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/skeleton.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-  <h1>liquid intelligence v1</h1>
-  <h3>Brews to date</h3>
-  <ul>
-    {{#each beer}}
-    <li><h3>{{name}}</h3></li>
-    <a class='viewBtn' id='{{this.id}}' href="#">View</a>
-    {{/each}}
-  </ul>
-    <button id="backBtn">Go Back</button>
+  <div class="six columns offset-by-three container">
+    <h1>liquid intelligence</h1>
+    <h3>Brews to date</h3>
+    <ul>
+      {{#each beer}}
+      <h3>{{name}}</h3>
+      <a class='viewBtn' id='{{this.id}}' href="#">View</a>
+      {{/each}}
+    </ul>
+  </div>
 </body>
 </html>
