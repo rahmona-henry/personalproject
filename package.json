@@ -9,7 +9,8 @@
     "start-dev": "nodemon ./server.js",
     "build": "browserify -t hbsfy ./src/index.js -g uglifyify > ./client/app.js",
     "serve": "node-dev server.js",
-    "watch": "watchify -t hbsfy ./src/index.js -o ./client/app.js -dev"
+    "watch": "watchify -t hbsfy ./src/index.js -o ./client/app.js -dev",
+    "postinstall": "knex migrate:latest"
   },
   "repository": {
     "type": "git",
