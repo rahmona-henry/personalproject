@@ -18,6 +18,12 @@ body {
 
 }
 
+/*.container h3 {
+  color: white;
+
+
+}*/
+
 .Formcontainer {
   text-align: center;
   position: absolute;
@@ -45,9 +51,10 @@ body {
   	top: 50%;
   	transform: translateY(-50%);
   	width: 100%;
-    background-color: ;
+    background-color: grey;
     border-radius: 8px;
 }
+
 
 #showBtn {
   background: white;
@@ -85,6 +92,22 @@ h1{
   color: #fff;
 
 }
+h2 {
+  font-family: 'Roboto Slab', serif;
+  color: #fff;
+}
+
+h4 {
+  font-family: 'Roboto Slab', serif;
+  color: black;
+}
+
+h5 {
+  font-family: 'Roboto Slab', serif;
+  color: black;
+}
+
+
 
 a:hover {
     text-decoration: underline;

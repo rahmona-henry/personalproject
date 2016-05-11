@@ -64,7 +64,7 @@ app.get('/beers/:id', function (req, res) {
 ////////POST ROUTES/////////////
 
 app.post('/add', function (req, res){
-  console.log('req',req)
+  // console.log('req')
   knex('beer').insert({name:req.body.name, style:req.body.style, brewer:req.body.brewer,
   yield:req.body.yield, brewDate:req.body.brewDate, bottlingDate:req.body.bottlingDate, original:req.body.original,
   final:req.body.final, mash:req.body.mash, ferment:req.body.ferment, abv:req.body.abv,
