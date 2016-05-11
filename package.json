@@ -36,9 +36,13 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
+    "bcrypt": "^0.8.6",
+    "bcrypt-node": "^0.1.0",
     "body-parser": "^1.15.0",
     "browserify": "^13.0.0",
+    "connect-session-knex": "^1.0.23",
     "express": "^4.13.4",
+    "express-session": "^1.13.0",
     "handlebars": "^4.0.5",
     "hbs": "^4.0.0",
     "hbsfy": "^2.6.0",
